@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuration - Cyberpunk Peer Network</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #121212;
+            color: #00ffcc;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .config-form {
+            border: 2px solid #00ffcc;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Configuration Settings</h1>
+        <div class="config-form">
+            <form action="/configure" method="post">
+                <div class="form-group">
+                    <label for="trackerEnabled">Enable Tracker</label>
+                    <select class="form-control" id="trackerEnabled" name="tracker_enabled">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-outline-info">Save Settings</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

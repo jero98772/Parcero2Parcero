@@ -6,7 +6,7 @@ PEER_PORT = 5000
 BUFFER_SIZE = 4096
 TRACKER_IP = "192.168.0.18"  # Replace with the tracker's IP address
 TRACKER_PORT = 6000
-SHARED_FOLDER = "a"
+SHARED_FOLDER = "templates"
 
 # Ensure the shared folder exists
 os.makedirs(SHARED_FOLDER, exist_ok=True)
@@ -110,29 +110,4 @@ def request_file(peer_ip, file_name):
     else:
         print(f"{file_name} not found on peer {peer_ip}")
     client_socket.close()
-
-def start_peer():
-    """
-    Starts the peer: registers with the tracker, allows file requests, and file list requests.
-    """
-    threading.Thread(target=start_peer_server).start()
-    register_with_tracker()
-    
-    while True:
-        action = input("Enter 'get_peers' to list peers, 'list_files' to see files on a peer, 'request' to download a file, or 'quit' to exit: ")
-        if action.lower() == "get_peers":
-            peers = get_peer_list()
-            print("Available peers:", peers)
-        elif action.lower() == "list_files":
-            peer_ip = input("Enter peer IP: ")
-            get_file_list(peer_ip)
-        elif action.lower() == "request":
-            peer_ip = input("Enter peer IP: ")
-            file_name = input("Enter the file name: ")
-            request_file(peer_ip, file_name)
-        elif action.lower() == "quit":
-            break
-
-if __name__ == "__main__":
-    start_peer()
 

@@ -41,6 +41,6 @@ def start_tracker():
         conn, addr = tracker_socket.accept()
         threading.Thread(target=handle_peer, args=(conn, addr)).start()
 
-if __name__ == "__main__":
-    start_tracker()
+#if __name__ == "__main__":
+#    start_tracker()
 

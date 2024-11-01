@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Files from {{ peer_ip }} - Cyberpunk Peer Network</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #121212;
+            color: #00ffcc;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .file-list {
+            border: 2px solid #00ffcc;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Files from {{ peer_ip }}</h1>
+        <div class="file-list">
+            <h2>Available Files</h2>
+            <ul class="list-group">
+                {% for file in files %}
+                    <li class="list-group-item">
+                        <a href="/{{ peer_ip }}/{{ file }}" class="text-info">{{ file }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <a href="/" class="btn btn-outline-info mt-3">Back to Peers</a>
+    </div>
+</body>
+</html>
