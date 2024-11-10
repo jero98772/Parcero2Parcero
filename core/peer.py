@@ -1,9 +1,7 @@
 import socket
 import threading
+from core.variables import *
 
-TRACKER_PORT = 6000
-BUFFER_SIZE = 4096
-peer_list = []
 
 def handle_peer(connection, address):
     """

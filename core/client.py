@@ -1,12 +1,7 @@
 import socket
 import threading
 import os
-
-PEER_PORT = 5000
-BUFFER_SIZE = 4096
-TRACKER_IP = "192.168.0.18"  # Replace with the tracker's IP address
-TRACKER_PORT = 6000
-SHARED_FOLDER = "templates"
+from core.variables import *
 
 # Ensure the shared folder exists
 os.makedirs(SHARED_FOLDER, exist_ok=True)

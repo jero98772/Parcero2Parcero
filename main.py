@@ -2,8 +2,10 @@ from fastapi import FastAPI, Request, Depends, Form
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 import threading
-from peer import start_tracker
-from client import request_file,get_peer_list, get_file_list,start_peer_server,register_with_tracker
+from core.peer import start_tracker
+from core.client import request_file,get_peer_list, get_file_list,start_peer_server,register_with_tracker
+from core.variables import *
+
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
@@ -13,6 +15,7 @@ list_peers = []
 
 @app.on_event("startup")
 async def startup_event():
+    print("start")
     global list_peers
     # Start the tracker in a separate thread
     threading.Thread(target=start_tracker).start()
@@ -37,13 +40,13 @@ async def main(request: Request):
     # Get the current list of peers
     list_peers = get_peer_list()
     
-    return templates.TemplateResponse("index.html", {"request": request, "peers": list_peers})
+    return templates.TemplateResponse("config/index.html", {"request": request, "peers": list_peers})
 
 @app.get("/files/{peer_ip}", response_class=HTMLResponse)
 async def list_files(peer_ip: str, request: Request):
     # Get the list of files from the specified peer
     files = get_file_list(peer_ip)
-    return templates.TemplateResponse("files.html", {"request": request, "files": files, "peer_ip": peer_ip})
+    return templates.TemplateResponse("config/files.html", {"request": request, "files": files, "peer_ip": peer_ip})
 
 @app.get("/{peer_ip}/{file_name}", response_class=HTMLResponse)
 async def render(peer_ip: str, file_name: str, request: Request):
@@ -54,4 +57,4 @@ async def render(peer_ip: str, file_name: str, request: Request):
 
 @app.get("/config", response_class=HTMLResponse)
 async def config(request: Request):
-    return templates.TemplateResponse("config.html", {"request": request, "peers": list_peers})
+    return templates.TemplateResponse("config/config.html", {"request": request, "peers": list_peers})
