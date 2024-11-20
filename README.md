@@ -54,7 +54,7 @@ The tracker server is integrated into the application. It manages the list of ac
 ### 2. Start Peer Clients
 Peers are independent entities that register with the tracker and share files. Start the peer clients as follows:
 
-1. Ensure the peer code has the correct `TRACKER_SERVER_IP`.
+1. Ensure the peer code has the correct `TRACKER_SERVER_IP`. See file `core/variables.py`
 2. Run the application using the same command as above.
 
 ---
@@ -65,7 +65,7 @@ Peers are independent entities that register with the tracker and share files. S
 
 1. Open a browser and navigate to:
    ```
-   http://<TRACKER_SERVER_IP>:9609/
+   http://localhost:9609/
    ```
 
 2. You will see the main dashboard listing all connected peers.
@@ -106,6 +106,7 @@ To stop the application:
 - Enhanced peer authentication and security.
 - Support for peer-to-peer communication without a central tracker.
 - Improved UI for file previews and transfers.
+- Change client and peer files to OOP paradigm.
 
 ---
 
