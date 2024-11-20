@@ -2,7 +2,7 @@
 
 **Parcero2Parcero** is a distributed web server application that allows peers to share and retrieve files through a tracker-based system. The system includes a tracker server and peer clients, working together to facilitate Distrubuted file sharing and communication.
 
-inspirated in [bravebrowser](https://beakerbrowser.com/)
+inspirated in [beakerbrowser](https://beakerbrowser.com/)
 
 ## Features
 
