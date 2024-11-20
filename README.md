@@ -109,4 +109,4 @@ To stop the application:
 
 ---
 
-Enjoy decentralized file sharing with **Parcero2Parcero**!
+Enjoy Distributed file sharing with **Parcero2Parcero**!
